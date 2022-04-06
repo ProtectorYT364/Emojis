@@ -10,7 +10,7 @@ declare(strict_types=1);
 # can be included in the next updates!      #
 # You can also help improve the plugin by   #
 # reporting plug-in bugs                    #
-# (only through GateHub!)!                  #
+# (only through GitHub!)!                  #
 #############################################
 namespace HighestDreams\Emojis;
 
@@ -24,7 +24,7 @@ use pocketmine\nbt\tag\FloatTag;
 use pocketmine\nbt\tag\ListTag;
 use pocketmine\network\mcpe\protocol\SetActorLinkPacket;
 use pocketmine\network\mcpe\protocol\types\EntityLink;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\Config;
@@ -47,7 +47,7 @@ class Main extends PluginBase
         return self::$Instance;
     }
 
-    public function onEnable()
+    public function onEnable(): void
     {
         self::$Instance = $this;
         /* Blame phpstorm */
@@ -89,7 +89,7 @@ class Main extends PluginBase
     public function spawn(Player $player, string $emoji)
     {
         if (isset(self::$emojis[$player->getName()])) {
-            if (!is_null($entity = $player->getLevel()->getEntity(self::$emojis[$player->getName()]))) {
+            if (!is_null($entity = $player->getWorld()->getEntity(self::$emojis[$player->getName()]))) {
                 $entity->flagForDespawn();
             }
         }
@@ -111,7 +111,7 @@ class Main extends PluginBase
             ])
         ]);
         $nbt->setTag($player->namedtag->getTag("Skin"));
-        $npc = (new Emoji($player->getLevel(), $nbt, $emoji));
+        $npc = (new Emoji($player->getWorld(), $nbt, $emoji));
         $npc->spawnToAll();
         $pk = new SetActorLinkPacket();
         $pk->link = new EntityLink($player->getId(), $npc->getId(), EntityLink::TYPE_RIDER, true, true);

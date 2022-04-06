@@ -10,13 +10,13 @@ declare(strict_types=1);
 # can be included in the next updates!      #
 # You can also help improve the plugin by   #
 # reporting plug-in bugs                    #
-# (only through GateHub!)!                  #
+# (only through GitHub!)!                  #
 #############################################
 namespace HighestDreams\Emojis\Form;
 
 use HighestDreams\Emojis\Form\formapi\FormAPI;
 use HighestDreams\Emojis\Main;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as COLOR;
 
 class Emojis

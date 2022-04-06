@@ -9,14 +9,14 @@
 # can be included in the next updates!      #
 # You can also help improve the plugin by   #
 # reporting plug-in bugs                    #
-# (only through GateHub!)!                  #
+# (only through GitHub!)!                  #
 #############################################
 name: Emojis
 author: HighestDreamsDev
-version: 1.0.3
+version: 1.0.4
 main: HighestDreams\Emojis\Main
-api: 3.0.0
-mcpe-protocol: [361, 388, 389, 390, 407, 408, 448, 465, 471]
+api: 4.0.0
+mcpe-protocol: [361, 388, 389, 390, 407, 408, 448, 465, 471, 486]
 commands:
   emoji:
     description: §l§eEmojis §7list

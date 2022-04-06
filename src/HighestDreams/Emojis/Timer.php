@@ -10,7 +10,7 @@ declare(strict_types=1);
 # can be included in the next updates!      #
 # You can also help improve the plugin by   #
 # reporting plug-in bugs                    #
-# (only through GateHub!)!                  #
+# (only through GitHub!)!                  #
 #############################################
 namespace HighestDreams\Emojis;
 
@@ -33,8 +33,8 @@ class Timer extends Task {
     {
         foreach (Main::$timer as $name => $timer) {
             if ($timer <= 0) {
-                foreach(Server::getInstance()->getLevels() as $level) {
-                    if (!is_null($entity = $level->getEntity(Main::$emojis[$name]))) {
+                foreach(Server::getInstance()->getWorlds() as $world) {
+                    if (!is_null($entity = $world->getEntity(Main::$emojis[$name]))) {
                         $entity->flagForDespawn();
                     }
                 }
@@ -42,8 +42,8 @@ class Timer extends Task {
                 unset(Main::$timer[$name]);
             } else {
                 if (!is_null($player = Server::getInstance()->getPlayer($name))) {
-                    foreach (Server::getInstance()->getLevels() as $level) {
-                        if (!is_null($entity = $level->getEntity(Main::$emojis[$name]))) {
+                    foreach (Server::getInstance()->getWorlds() as $world) {
+                        if (!is_null($entity = $world->getEntity(Main::$emojis[$name]))) {
                             $entity->yaw = $player->getYaw();
                     }
                     }

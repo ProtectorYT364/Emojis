@@ -7,17 +7,17 @@ namespace HighestDreams\Emojis;
 use pocketmine\entity\Human;
 use pocketmine\entity\Skin;
 use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\level\Level;
+use pocketmine\world\World;
 use pocketmine\nbt\tag\CompoundTag;
 
 class Emoji extends Human {
 
     public static $emoji;
 
-    public function __construct(Level $level, CompoundTag $nbt, string $emoji)
+    public function __construct(World $world, CompoundTag $nbt, string $emoji)
     {
         self::$emoji = $emoji;
-        parent::__construct($level, $nbt);
+        parent::__construct($world, $nbt);
     }
 
     /**

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace HighestDreams\Emojis\Form\formapi;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\form\Form as IForm;
 
 abstract class Form implements IForm{

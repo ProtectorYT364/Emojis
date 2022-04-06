@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace HighestDreams\Emojis\Form\formapi;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class SimpleForm extends Form {
 
